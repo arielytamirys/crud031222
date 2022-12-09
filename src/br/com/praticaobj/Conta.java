@@ -6,7 +6,7 @@ public class Conta {
 	private Double numConta;
 	private String tipoConta;
 	private boolean statusConta;
-	private int saldoConta;
+	private float saldoConta;
 	
 
 	public Conta() {
@@ -38,7 +38,7 @@ public class Conta {
 			System.out.println("Conta não pode ser fechada pois Possui debito");
 		}else {
 			this.setStatusConta(false);
-			System.out.println("conta aberta com sucesso");
+			System.out.println("conta fechada com sucesso");
 		}
 		
 	}
@@ -46,16 +46,25 @@ public class Conta {
 	public void depositar(float valor) {
 		if (this.getStatusConta()) {
 			this.setSaldoConta(this.getSaldoConta() + valor);
-			
+			System.out.println("Deposito realizado com sucesso  na conta de " + this.getNomeCliente());
 		} else {
-
+			System.out.println("impossivel deposita em uma conta fechada ou que não existe ");
 		}
-		
 	}
 	
-	public void sacarConta() {
-		
+	public void sacarConta(float valor) {
+		if (this.getStatusConta()) {
+			if (this.getSaldoConta() >= valor) {
+				this.setSaldoConta(this.getSaldoConta() - valor);
+				System.out.println("saque realizado na conta de " + this.getNomeCliente());
+			} else {
+				System.out.println("saldo insufuciente");
+			}
+		} else {
+			System.err.println("NAO POSSUIMOS ESTA CONTA EM NOSSO SISTEMA");
+		}
 	}
+	
 	
 	public void debito() {
 		
@@ -88,10 +97,10 @@ public class Conta {
 	public void setStatusConta(boolean statusConta) {
 		this.statusConta = statusConta;
 	}
-	public int getSaldoConta() {
+	public float getSaldoConta() {
 		return saldoConta;
 	}
-	public void setSaldoConta(int saldoConta) {
+	public void setSaldoConta(float saldoConta) {
 		this.saldoConta = saldoConta;
 	}
 	
