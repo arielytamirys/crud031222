@@ -8,6 +8,17 @@ public class Conta {
 	private boolean statusConta;
 	private float saldoConta;
 	
+	public void estadiAtual() {
+		System.err.println("----------------------------------");
+		System.out.println("Conta" + this.getNumConta());
+		System.out.println("Dono(a)" + this.getNomeCliente());
+		System.out.println("Tipo" + this.getTipoConta());
+		System.out.println("Saldo" + this.getSaldoConta());
+		System.out.println("Status" + this.getStatusConta());
+		
+		
+	}
+	
 
 	public Conta() {
 
@@ -68,10 +79,23 @@ public class Conta {
 	
 	public void debito() {
 		
-	}
-	
-	
-	
+		int v = 0;
+		
+		if (this.getTipoConta () == "CC") {
+			v = 12;
+		} else if (this.getTipoConta () == "CP") {
+			v = 20;
+		}
+		
+		if (this.getStatusConta()) {
+			this.setSaldoConta(this.getSaldoConta() - v);
+			System.out.println("Mensalidade paga com sucesso");
+		}else{
+				System.out.println("impossibel pagar conta por falta de saldo");		
+			}
+		}
+		
+
 
 	public String getNomeCliente() {
 		return nomeCliente;
