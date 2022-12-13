@@ -31,10 +31,13 @@ public class Conta {
 
 		if (t == "CC") {
 			this.setSaldoConta(50);
-
-		} else {
+			
+		} else if (t == "CP") {
 			this.setSaldoConta(150);
+		}else {
+			System.err.println("Esta conta não existe");
 		}
+		
 
 		System.out.println("Conta aberta com sucesso");
 	}
