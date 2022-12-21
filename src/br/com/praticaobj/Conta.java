@@ -8,15 +8,15 @@ public class Conta {
 	private boolean statusConta;
 	private float saldoConta;
 
-	public void estadoAtual() {
-		System.err.println("----------------------------------");
-		System.out.println("Conta: " + this.getNumConta());
-		System.out.println("Dono(a): " + this.getNomeCliente());
-		System.out.println("Tipo: " + this.getTipoConta());
-		System.out.println("Saldo: " + this.getSaldoConta());
-		System.out.println("Status: " + this.getStatusConta());
-
-	}
+//	public void estadoAtual() {
+//		System.err.println("----------------------------------");
+//		System.out.println("Conta: " + this.getNumConta());
+//		System.out.println("Dono(a): " + this.getNomeCliente());
+//		System.out.println("Tipo: " + this.getTipoConta());
+//		System.out.println("Saldo: " + this.getSaldoConta());
+//		System.out.println("Status: " + this.getStatusConta());
+//
+//	}
 
 	public Conta() {
 

@@ -17,7 +17,7 @@ public class Client {
 		p1.setNomeCliente(digite.next());
 		System.out.println("Digite saldo da conta: ");
 		p1.setSaldoConta(digite.nextFloat());
-		//p1.setStatusConta(true);
+		p1.setStatusConta(true);
 		//p1.abrirConta("CC");
 		
 //		
