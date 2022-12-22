@@ -7,7 +7,7 @@ public class FuncControl implements Controlling {
 	private boolean playing;
 	
 	public FuncControl() {
-		this.volume = 50;
+		this.volume = 30;
 		this.on = false;
 		this.playing = false;	
 	}
@@ -48,34 +48,59 @@ public class FuncControl implements Controlling {
 		System.out.print("Volume: " + this.getVolume());
 		for (int i = 0; i<= this.getVolume(); i+=10) {
 			System.out.print("|");
+	/*
+	 */
 		}
 	}
 
 	@Override
-	public void closeMenu() {		
+	public void closeMenu() {	
+		System.out.println("fechando menu");
 	}
 
 	@Override
-	public void moreVolume() {		
+	public void moreVolume() {	
+		if (this.isOn()) {
+			this.setVolume(this.getVolume()+3);
+//linha 61 e 62 esta falando que se a tv estiver ligada,  ao clicar no mais volume deve se almentar mais 3 |||	
+		} 
 	}
 
 	@Override
-	public void lessVolume() {		
+	public void lessVolume() {	
+		if(this.isOn()) {
+			this.setVolume(this.getVolume()-3);
+			
+		}
 	}
 
 	@Override
-	public void turnOnMute() {		
+	public void turnOnMute() {	
+		if(this.isOn() && this.getVolume() > 0) {
+			this.setVolume(0);
+//se a tv estiver ligada, e so posso colocar a tv muda se ela não estiver no mudo.
+		}
 	}
 
 	@Override
-	public void turnOffMude() {		
+	public void turnOffMude() {	
+		if(this.isOn() && this.getVolume() == 0) {
+			this.setVolume(30);		
+		}
 	}
 
 	@Override
-	public void play() {		
+	public void play() {
+		if(this.isOn() && !(this.isPlaying())){
+			this.setPlaying(true);
+		}
 	}
 
 	@Override
-	public void pause() {		
+	public void pause() {	
+		if (this.isOn() && this.isPlaying()) {
+			this.setPlaying(false);
+			
+		}
 	}
 }
