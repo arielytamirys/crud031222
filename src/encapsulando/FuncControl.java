@@ -7,7 +7,7 @@ public class FuncControl implements Controlling {
 	private boolean playing;
 	
 	public FuncControl() {
-		this.volume = 30;
+		this.volume = 30; // meu volume vai começar com o valorm estipulado assim que ligar a tv
 		this.on = false;
 		this.playing = false;	
 	}
@@ -70,7 +70,7 @@ public class FuncControl implements Controlling {
 	public void lessVolume() {	
 		if(this.isOn()) {
 			this.setVolume(this.getVolume()-3);
-			
+		// aqui é ao contrario 	do  moreVolume
 		}
 	}
 
@@ -78,7 +78,7 @@ public class FuncControl implements Controlling {
 	public void turnOnMute() {	
 		if(this.isOn() && this.getVolume() > 0) {
 			this.setVolume(0);
-//se a tv estiver ligada, e so posso colocar a tv muda se ela não estiver no mudo.
+///* so vai colocar mudo se não estiver mudo,
 		}
 	}
 
@@ -86,6 +86,8 @@ public class FuncControl implements Controlling {
 	public void turnOffMude() {	
 		if(this.isOn() && this.getVolume() == 0) {
 			this.setVolume(30);		
+			/* verifica se esta no mudo, se estiver e tirar do mudo 
+			  ele volta para o valor estipulado */
 		}
 	}
 
@@ -93,6 +95,7 @@ public class FuncControl implements Controlling {
 	public void play() {
 		if(this.isOn() && !(this.isPlaying())){
 			this.setPlaying(true);
+			/* se estiver ligado e não estive tocando é verdadeiro*/
 		}
 	}
 
@@ -100,7 +103,7 @@ public class FuncControl implements Controlling {
 	public void pause() {	
 		if (this.isOn() && this.isPlaying()) {
 			this.setPlaying(false);
-			
+			// se estiver e estiver tocando é falso
 		}
 	}
 }
